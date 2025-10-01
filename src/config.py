@@ -24,7 +24,7 @@ class Logger:
 
 class Config:
     
-    def __init__(self, data="housing", model="Adaptive_NAM", lr = 1e-4, max_epoch = 50, batch_size=256, \
+    def __init__(self, data="housing", model="NAE", lr = 1e-4, max_epoch = 50, batch_size=256, \
          test_step=1, h_dim=64, n_layers=4, device="cpu", seed=0, exp_str=None, eval=False, \
          weight_decay = 1e-8, dropout=0.0, dropout_expert=0.0, fold=0, output_penalty=0.0, \
          var_penalty=0.1, C=32, k=2, batch_norm=False, DATA_PATH = "./data"):
@@ -110,18 +110,18 @@ class Config:
         self.output_penalty = output_penalty
         self.var_penalty = var_penalty
 
-        if self.model_type == "Adaptive_NAM":
-            self.model = Adaptive_NAM(self.problem, len(self.train_set.X[0]), self.h_dim, \
+        if self.model_type == "NAE":
+            self.model = NAE(self.problem, len(self.train_set.X[0]), self.h_dim, \
                 self.n_layers, 1 if self.n_class < 3 else self.n_class, C=self.C, k=self.k, \
                 dropout=self.dropout, dropout_expert=self.dropout_expert, output_penalty=self.output_penalty, \
                 var_penalty=self.var_penalty, batch_norm=self.batch_norm)
-        elif self.model_type == "Adaptive_NAM_D":
-            self.model = Adaptive_NAM_D(self.problem, len(self.train_set.X[0]), self.h_dim, \
+        elif self.model_type == "NAE_D":
+            self.model = NAE_D(self.problem, len(self.train_set.X[0]), self.h_dim, \
                 self.n_layers, 1 if self.n_class < 3 else self.n_class, C=self.C, k=self.k, \
                 dropout=self.dropout, dropout_expert=self.dropout_expert, output_penalty=self.output_penalty, \
                 var_penalty=self.var_penalty, batch_norm=self.batch_norm)        
-        elif self.model_type == "Adaptive_NAM_E":
-            self.model = Adaptive_NAM_E(self.problem, len(self.train_set.X[0]), self.h_dim, \
+        elif self.model_type == "NAE_E":
+            self.model = NAE_E(self.problem, len(self.train_set.X[0]), self.h_dim, \
                 self.n_layers, 1 if self.n_class < 3 else self.n_class, C=self.C, k=self.k, \
                 dropout=self.dropout, dropout_expert=self.dropout_expert, output_penalty=self.output_penalty, \
                 var_penalty=self.var_penalty, batch_norm=self.batch_norm)

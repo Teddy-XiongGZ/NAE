@@ -1,4 +1,4 @@
-# Adaptive Neural Additive Model (Adaptive-NAM)
+# Neural Additive Experts: Context-Gated Experts for Controllable Model Additivity
 
 ## Dataset Setup
 
@@ -54,10 +54,10 @@ The following links are shared by the authors of NODE-GAM (Chang et al., 2022).
 
 ## Usage
 
-The running scripts are included in the `./scripts` directory. Here we give an example to run Adaptive-NAM on the Housing dataset
+The running scripts are included in the `./scripts` directory. Here we give an example to run NAE on the Housing dataset
 ```bash
 for seed in `seq 0 9`
 do
-    python src/train.py --device cuda:0 --seed $seed --exp_str optim_$seed --model Adaptive_NAM --data housing
+    python src/train.py --device cuda:0 --seed $seed --exp_str optim_$seed --model NAE --data housing
 done
 ```

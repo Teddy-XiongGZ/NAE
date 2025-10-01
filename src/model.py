@@ -42,10 +42,10 @@ class MultiChannelLinear(nn.Module):
             return (self.w * x.unsqueeze(-2)).mean(-1) + self.b
 
 
-class Adaptive_NAM(nn.Module):
+class NAE(nn.Module):
 
     def __init__(self, problem, n_feat, h_dim, n_layers, n_class, C=4, k=4, dropout=0.0, dropout_expert=0.0, output_penalty=0.0, var_penalty=0.0, batch_norm=False):
-        super(Adaptive_NAM, self).__init__()
+        super(NAE, self).__init__()
 
         self.problem = problem
         self.n_feat = n_feat
@@ -124,10 +124,10 @@ class Adaptive_NAM(nn.Module):
         res = res.sum(dim=-1, keepdim=True) + self.bias # (batch_size)
         return res.squeeze(-1), loss
 
-class Adaptive_NAM_D(nn.Module):
+class NAE_D(nn.Module):
 
     def __init__(self, problem, n_feat, h_dim, n_layers, n_class, C=4, k=4, dropout=0.0, dropout_expert=0.0, output_penalty=0.0, var_penalty=0.0, batch_norm=False):
-        super(Adaptive_NAM_D, self).__init__()
+        super(NAE_D, self).__init__()
 
         self.problem = problem
         self.n_feat = n_feat
@@ -202,10 +202,10 @@ class Adaptive_NAM_D(nn.Module):
         return res.squeeze(-1), loss
 
 
-class Adaptive_NAM_E(nn.Module):
+class NAE_E(nn.Module):
 
     def __init__(self, problem, n_feat, h_dim, n_layers, n_class, C=4, k=4, dropout=0.0, dropout_expert=0.0, output_penalty=0.0, var_penalty=0.0, batch_norm=False):
-        super(Adaptive_NAM_E, self).__init__()
+        super(NAE_E, self).__init__()
 
         self.problem = problem
         self.n_feat = n_feat
