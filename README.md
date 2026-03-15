@@ -61,3 +61,14 @@ do
     python src/train.py --device cuda:0 --seed $seed --exp_str optim_$seed --model NAE --data housing
 done
 ```
+
+## Citation
+```
+@inproceedings{xiong2026neural,
+  title={Neural Additive Experts: Context-Gated Experts for Controllable Model Additivity},
+  author={Guangzhi Xiong and Sanchit Sinha and Aidong Zhang},
+  booktitle={The 29th International Conference on Artificial Intelligence and Statistics},
+  year={2026},
+  url={https://openreview.net/forum?id=bdqw4bSP4l}
+}
+```
